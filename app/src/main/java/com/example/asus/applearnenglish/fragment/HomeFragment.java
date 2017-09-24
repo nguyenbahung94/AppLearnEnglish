@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.asus.applearnenglish.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by Asus on 9/22/2017.
@@ -15,14 +17,19 @@ import com.example.asus.applearnenglish.R;
 
 public class HomeFragment extends Fragment {
     private View view;
+    private DatabaseReference databaseReference;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
+        init();
+        event();
+        return view;
     }
 
     private void init() {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
     }
 
